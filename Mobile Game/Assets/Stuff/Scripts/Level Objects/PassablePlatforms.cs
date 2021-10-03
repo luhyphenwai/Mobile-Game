@@ -23,7 +23,7 @@ public class PassablePlatforms : MonoBehaviour
 
     private void Update()
     {
-        if (input.touching || off)
+        if (input.doubleTapped || off)
         {
             bc.isTrigger = true;
             if (!off) StartCoroutine(Timer());

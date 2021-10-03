@@ -19,18 +19,19 @@ public class InputManager : MonoBehaviour
         doubleTapped = false;
         touching = false;
 
-
+        if (Input.GetKeyDown(KeyCode.Space)) tapped = true;
         foreach (Touch touch in Input.touches)
         {
-            if ((touch.phase == TouchPhase.Ended && touchingTime < tapTime) || Input.GetKey(KeyCode.Space))
+            if (touch.phase == TouchPhase.Began || Input.GetKey(KeyCode.Space))
             {
-                tapped = touch.tapCount == 1 || Input.GetKey(KeyCode.Space);
+                // tapped = touch.tapCount == 1 || Input.GetKey(KeyCode.Space);
                 doubleTapped = touch.tapCount == 2;
             }
+            else if (touchingTime > tapTime && !touching) { touching = true; tapped = touch.tapCount == 1; }
             else if (touchingTime > tapTime) touching = true;
         }
         if (Input.touchCount == 0 || !Input.GetKey(KeyCode.Space)) touchingTime = 0;
-        else touchingTime += Input.touches[0].deltaTime;
+        else touchingTime += Input.GetKey(KeyCode.Space) ? Input.touches[0].deltaTime : Time.deltaTime;
     }
 
 }

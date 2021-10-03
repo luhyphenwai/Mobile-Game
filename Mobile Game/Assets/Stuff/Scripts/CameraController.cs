@@ -42,6 +42,9 @@ public class CameraController : MonoBehaviour
         if (targetPosition.y > maxPositions.y) targetPosition.y = maxPositions.y;
         else if (targetPosition.y < minPositions.y) targetPosition.y = minPositions.y;
 
+        if (targetPosition.x > maxPositions.x) targetPosition.x = maxPositions.x;
+        else if (targetPosition.x < minPositions.x) targetPosition.x = minPositions.x;
+
 
         // Lerp the camera towards the position
         transform.position = Vector3.Lerp(transform.position, targetPosition, cameraSpeed);

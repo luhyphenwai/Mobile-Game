@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7111295114796411548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.74, y: -2.62, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7111295114571389961}
@@ -146,7 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17849b2d9f1ec8642b43a77be2e46bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingSpeed: 1
+  firingSpeed: 0.8
   animationTime: 0.7
+  playerDistance: 10
   firingPosition: {fileID: 7111295114571389961}
   cannonBall: {fileID: 3301469460304239815, guid: 7ab98f7323dea5147a5e4aefb7880308, type: 3}
