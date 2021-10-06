@@ -10,7 +10,9 @@ public class PowerupManager : MonoBehaviour
     private PlayerController pc;
     private GameManager gm;
     private InputManager input;
+    private Animator anim;
     public Button[] buttons;
+    public bool menuOpened;
 
     [Header("Activated Powerups")]
     public bool canTripleJump;
@@ -35,6 +37,7 @@ public class PowerupManager : MonoBehaviour
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         input = GameObject.FindGameObjectWithTag("Input").GetComponent<InputManager>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,8 +56,15 @@ public class PowerupManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("Background").GetComponent<Animator>().enabled = true;
             GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>().velocity = velocity;
         }
+
+
     }
 
+    public void TriggerMenu()
+    {
+        gm.TriggerPause();
+        anim.SetTrigger("Toggle");
+    }
     public void BuyItem(Button button)
     {
         if (button.name == "Triple Jumping ")

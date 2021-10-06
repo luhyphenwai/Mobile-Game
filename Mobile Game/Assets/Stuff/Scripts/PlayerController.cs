@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     private InputManager input;
     private GameManager gm;
+    private PowerupManager pm;
     private Rigidbody2D rb;
     private BoxCollider2D bc;
     private Animator anim;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     public bool dead;
     private bool atHouse;
+    private bool atShop;
 
     [Header("Movement Variables")]
     public float jumpHeight;
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         input = GameObject.FindGameObjectWithTag("Input").GetComponent<InputManager>();
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        pm = GameObject.FindGameObjectWithTag("PowerupManager").GetComponent<PowerupManager>();
         anim.runtimeAnimatorController = gm.playerSkin;
     }
 
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
         if (!dead)
         {
             // If just touched screen && can jump
-            if ((isGrounded || !doubleJumped) && input.tapped && !atHouse)
+            if ((isGrounded || !doubleJumped) && input.tapped && !atHouse && !atShop)
             {
                 doubleJumped = !isGrounded;
                 rb.velocity = new Vector2(0, jumpHeight);
@@ -72,6 +75,10 @@ public class PlayerController : MonoBehaviour
             else if (atHouse && input.tapped)
             {
                 gm.DepositCandies();
+            }
+            else if (atShop && input.tapped)
+            {
+                gm
             }
             anim.SetBool("IsGrounded", isGrounded);
 
@@ -102,6 +109,10 @@ public class PlayerController : MonoBehaviour
         {
             atHouse = true;
         }
+        else if (other.tag == "Shop")
+        {
+            atShop = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -110,5 +121,10 @@ public class PlayerController : MonoBehaviour
         {
             atHouse = false;
         }
+        else if (other.tag == "Shop")
+        {
+            atShop = false;
+        }
+
     }
 }

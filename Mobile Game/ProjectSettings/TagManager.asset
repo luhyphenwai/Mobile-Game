@@ -10,6 +10,8 @@ TagManager:
   - Jump
   - House
   - Background
+  - Shop
+  - PowerupManager
   layers:
   - Default
   - TransparentFX
