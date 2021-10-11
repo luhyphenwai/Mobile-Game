@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beff7ae45181bee4082f005645b7323b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  candy: {fileID: 8169415307889700922, guid: 2142f1b727529374fa8db8e80a52448c, type: 3}
+  gem: {fileID: 7971357967367956949, guid: f1f90072f08a5eb47abc6408e4c6a51a, type: 3}
+  candyRate: 3
+  gemRate: 1

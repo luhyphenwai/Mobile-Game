@@ -9,10 +9,11 @@ public class LevelManager : MonoBehaviour
     public float velocity;
     public float levelSpawnPosition;
     public float levelDeletePosition;
+    public GameObject SideDeathZone;
     // Start is called before the first frame update
     void Start()
     {
-
+        SideDeathZone.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(-Screen.width / 3.5f, 0, 10));
     }
 
     // Update is called once per frame

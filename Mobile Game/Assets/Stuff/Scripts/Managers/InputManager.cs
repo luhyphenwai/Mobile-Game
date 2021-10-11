@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     public bool tapped;
     public bool doubleTapped;
     public bool touching;
+    public bool holding;
     public int currentTaps;
     public float tapTime;
     private float touchingTime;
@@ -30,8 +31,16 @@ public class InputManager : MonoBehaviour
             else if (touchingTime > tapTime && !touching) { touching = true; tapped = touch.tapCount == 1; }
             else if (touchingTime > tapTime) touching = true;
         }
-        if (Input.touchCount == 0 || !Input.GetKey(KeyCode.Space)) touchingTime = 0;
-        else touchingTime += Input.GetKey(KeyCode.Space) ? Input.touches[0].deltaTime : Time.deltaTime;
+        if (Input.touchCount == 0 && !Input.GetKey(KeyCode.Space))
+        {
+            touchingTime = 0;
+            holding = false;
+        }
+        else
+        {
+            touchingTime += Time.deltaTime;
+            holding = true;
+        }
     }
 
 }

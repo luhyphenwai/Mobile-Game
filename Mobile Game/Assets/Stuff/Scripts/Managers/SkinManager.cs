@@ -57,7 +57,7 @@ public class SkinManager : MonoBehaviour
     {
         // Set buttons
         selectButton.interactable = skins[currentSkinIndex].owned && currentSelectedSkin != currentSkinIndex;
-        buyWithCoinButton.interactable = gm.coins >= skins[currentSkinIndex].coinCost && !skins[currentSkinIndex].owned;
+        buyWithCoinButton.interactable = gm.gems >= skins[currentSkinIndex].gemCost && !skins[currentSkinIndex].owned;
         // buyWithGemsButton.enabled = gm.gems >= skins[currentSkinIndex].gemCost;
 
         // Set skin display

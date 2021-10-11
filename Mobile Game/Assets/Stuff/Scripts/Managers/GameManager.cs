@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [Header("References")]
+    public Button PauseButton;
     private Animator anim;
 
     [Header("State")]
@@ -13,15 +15,16 @@ public class GameManager : MonoBehaviour
     public bool paused;
     public RuntimeAnimatorController playerSkin;
     public bool hasExtraLife;
+    public bool powerupOpen;
 
-    [Header("Scripts")]
+
+    [Header("Player Items")]
     public int candies;
-
-    [Header("Variables")]
-    public int coins;
     public int gems;
-    public int candyToCoinRate;
-    public int coinCollectRate;
+
+    [Header("Conversions")]
+    public int candyToGemRate;
+    public int gemCollectRate;
 
     [Header("Scene Loading")]
     public float sceneTransitionTime;
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         anim = GetComponent<Animator>();
+        PauseButton.gameObject.SetActive(SceneManager.GetActiveScene().buildIndex == 1);
     }
     // Start is called before the first frame update
     void Start()
@@ -44,15 +48,22 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Pausing();
+        // print(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void TriggerPause()
     {
         paused = !paused;
+        PauseButton.interactable = !paused;
+    }
+    public void TriggerPowerupMenu()
+    {
+        paused = !paused;
+        powerupOpen = !powerupOpen;
     }
     void Pausing()
     {
-        anim.SetBool("Paused", paused);
+        anim.SetBool("Paused", paused && !powerupOpen);
         Time.timeScale = paused ? 0 : 1;
     }
 
@@ -67,12 +78,11 @@ public class GameManager : MonoBehaviour
 
     public void DepositCandies()
     {
-        coins += candies * candyToCoinRate;
+        gems += candies * candyToGemRate;
     }
 
     public IEnumerator Load(int scene)
     {
-        print("bruh");
         if (loadingScene) yield break; // Break if already loading scene
         loadingScene = true;
         AsyncOperation load = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
@@ -90,6 +100,9 @@ public class GameManager : MonoBehaviour
 
         GameObject myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+
+        PauseButton.gameObject.SetActive(SceneManager.GetActiveScene().buildIndex == 1);
+        anim.SetTrigger("Reset");
     }
 
     public void PlayerDied()
@@ -106,8 +119,8 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void AddCoin()
+    public void AddGems()
     {
-        coins += coinCollectRate;
+        gems += gemCollectRate;
     }
 }

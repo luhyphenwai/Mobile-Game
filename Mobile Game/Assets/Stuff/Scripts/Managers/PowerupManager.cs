@@ -25,7 +25,7 @@ public class PowerupManager : MonoBehaviour
     public bool tripleJumped;
     public float timeSlowFactor;
     public float slowerProjectileSpeed;
-    public int lastCoins;
+    public int lastGems;
     public float upVelocity;
     public float velocity;
     private bool canStart;
@@ -62,7 +62,7 @@ public class PowerupManager : MonoBehaviour
 
     public void TriggerMenu()
     {
-        gm.TriggerPause();
+        gm.TriggerPowerupMenu();
         anim.SetTrigger("Toggle");
     }
     public void BuyItem(Button button)
@@ -147,8 +147,8 @@ public class PowerupManager : MonoBehaviour
 
     void DoubleCoins()
     {
-        if (gm.coins > lastCoins) gm.AddCoin();
-        lastCoins = gm.coins;
+        if (gm.gems > lastGems) gm.AddGems();
+        lastGems = gm.gems;
     }
 
     IEnumerator ResetLife()

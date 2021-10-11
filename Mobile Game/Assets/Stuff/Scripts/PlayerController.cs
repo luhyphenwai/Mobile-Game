@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
     public bool doubleJumped;
     public float velocity;
     public Vector2 deathVelocity;
+    [Header("Better Jumping")]
+    public float defaultGravity;
+    public float fallGravity;
+    public float jumpGravity;
 
     [Header("Level Interactions")]
     public float jumpPadHeight;
@@ -78,7 +82,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (atShop && input.tapped)
             {
-                gm
+                pm.TriggerMenu();
             }
             anim.SetBool("IsGrounded", isGrounded);
 
@@ -86,7 +90,9 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(-Mathf.Lerp(transform.position.x, 0, velocity), rb.velocity.y);
         }
 
-
+        if (input.holding) rb.gravityScale = jumpGravity;
+        else if (rb.velocity.y < 0) rb.gravityScale = fallGravity;
+        else rb.gravityScale = defaultGravity;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
