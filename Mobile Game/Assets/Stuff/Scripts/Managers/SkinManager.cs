@@ -12,6 +12,7 @@ public class SkinManager : MonoBehaviour
     private GameManager gm;
 
     [Header("Skin Display")]
+    public TMP_Text priceText;
     public Animator skinDisplay;
     public Button selectButton;
     public int currentSelectedSkin;
@@ -58,6 +59,7 @@ public class SkinManager : MonoBehaviour
         // Set buttons
         selectButton.interactable = skins[currentSkinIndex].owned && currentSelectedSkin != currentSkinIndex;
         buyWithCoinButton.interactable = gm.gems >= skins[currentSkinIndex].gemCost && !skins[currentSkinIndex].owned;
+        priceText.text = skins[currentSkinIndex].gemCost.ToString();
         // buyWithGemsButton.enabled = gm.gems >= skins[currentSkinIndex].gemCost;
 
         // Set skin display

@@ -21,9 +21,9 @@ public class MenuController : MonoBehaviour
         gm.StartCoroutine(gm.Load(1));
     }
 
-    public void Shop()
+    public void GetGems()
     {
-
+        gm.PlayGemAd();
     }
 
 }

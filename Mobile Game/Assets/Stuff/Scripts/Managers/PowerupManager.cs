@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class PowerupManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class PowerupManager : MonoBehaviour
     private InputManager input;
     private Animator anim;
     public Button[] buttons;
+    private EventSystem eventSystem;
     public bool menuOpened;
 
     [Header("Activated Powerups")]
@@ -20,6 +23,13 @@ public class PowerupManager : MonoBehaviour
     public bool extraLife;
     public bool slowDownProjectiles;
     public bool doubleCoins;
+
+    [Header("Powerup Prices")]
+    public int tripleJumpPrice;
+    public int slowDownTimePrice;
+    public int extraLifePrice;
+    public int slowDownProjectilesPrice;
+    public int doubleCoinsPrice;
 
     [Header("Settings")]
     public bool tripleJumped;
@@ -37,7 +47,34 @@ public class PowerupManager : MonoBehaviour
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         input = GameObject.FindGameObjectWithTag("Input").GetComponent<InputManager>();
+        eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         anim = GetComponent<Animator>();
+
+        // Set powerup prices
+        foreach (Button button in buttons)
+        {
+            if (button.name == "Triple Jumping")
+            {
+                button.gameObject.transform.GetChild(1).GetChild(2).GetComponent<TMP_Text>().text = tripleJumpPrice.ToString();
+            }
+            else if (button.name == "Slow Down Time")
+            {
+
+                button.gameObject.transform.GetChild(1).GetChild(2).GetComponent<TMP_Text>().text = slowDownTimePrice.ToString();
+            }
+            else if (button.name == "Extra Life")
+            {
+                button.gameObject.transform.GetChild(1).GetChild(2).GetComponent<TMP_Text>().text = extraLifePrice.ToString();
+            }
+            else if (button.name == "Slow Down Projectiles")
+            {
+                button.gameObject.transform.GetChild(1).GetChild(2).GetComponent<TMP_Text>().text = slowDownProjectilesPrice.ToString();
+            }
+            else if (button.name == "Double Coins")
+            {
+                button.gameObject.transform.GetChild(1).GetChild(2).GetComponent<TMP_Text>().text = doubleCoinsPrice.ToString();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -64,36 +101,63 @@ public class PowerupManager : MonoBehaviour
     {
         gm.TriggerPowerupMenu();
         anim.SetTrigger("Toggle");
+        pc.atShop = false;
+        eventSystem.SetSelectedGameObject(null);
     }
     public void BuyItem(Button button)
     {
-        if (button.name == "Triple Jumping ")
+        if (button.name == "Triple Jumping")
         {
-            button.interactable = !canTripleJump;
+            if (gm.candies >= tripleJumpPrice)
+            {
+
+                canTripleJump = true;
+                gm.candies -= tripleJumpPrice;
+            }
         }
         else if (button.name == "Slow Down Time")
         {
-            button.interactable = !slowDownTime;
+            if (gm.candies >= slowDownTimePrice)
+            {
+
+                slowDownTime = true;
+                gm.candies -= slowDownTimePrice;
+            }
         }
         else if (button.name == "Extra Life")
         {
-            button.interactable = !extraLife;
+            if (gm.candies >= extraLifePrice)
+            {
+
+                extraLife = true;
+                gm.candies -= extraLifePrice;
+            }
         }
         else if (button.name == "Slow Down Projectiles")
         {
-            button.interactable = !slowDownProjectiles;
+            if (gm.candies >= slowDownProjectilesPrice)
+            {
+
+                slowDownProjectiles = true;
+                gm.candies -= slowDownProjectilesPrice;
+            }
         }
         else if (button.name == "Double Coins")
         {
-            button.interactable = !doubleCoins;
-        }
+            if (gm.candies >= doubleCoinsPrice)
+            {
 
+                doubleCoins = true;
+                gm.candies -= doubleCoinsPrice;
+            }
+        }
+        CheckButtons();
     }
     public void CheckButtons()
     {
         foreach (Button button in buttons)
         {
-            if (button.name == "Triple Jumping ")
+            if (button.name == "Triple Jumping")
             {
                 button.interactable = !canTripleJump;
             }

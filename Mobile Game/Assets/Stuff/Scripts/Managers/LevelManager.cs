@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
+
+    public TMP_Text distance;
+    public float distanceFactor;
     public List<LevelObject> levelObjects;
     public GameObject[] levelPrefabs;
     public float velocity;
@@ -30,7 +34,7 @@ public class LevelManager : MonoBehaviour
                 levelObjects[i].spawned = true;
                 SpawnLevelObject(levelObjects[i].gameObject);
             }
-            else if (levelObjects[i].transform.position.x < levelDeletePosition)
+            else if (i != 0 && levelObjects[i].transform.position.x < levelDeletePosition)
             {
                 // Remove object from list and destroy object
                 LevelObject levelObject = levelObjects[i];
@@ -38,6 +42,7 @@ public class LevelManager : MonoBehaviour
                 Destroy(levelObject.gameObject);
             }
         }
+        distance.text = (-Mathf.Round(levelObjects[0].transform.position.x - 12) * distanceFactor).ToString();
     }
 
     void SpawnLevelObject(GameObject level)

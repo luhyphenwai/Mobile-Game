@@ -7,6 +7,5 @@ public class Skin
 {
     public RuntimeAnimatorController animator;
     public bool owned;
-    public int coinCost;
     public int gemCost;
 }

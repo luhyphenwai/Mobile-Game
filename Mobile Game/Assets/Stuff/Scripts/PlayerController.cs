@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     public bool jumped;
     public bool isGrounded;
     public bool dead;
-    private bool atHouse;
-    private bool atShop;
+    public bool atHouse;
+    public bool atShop;
 
     [Header("Movement Variables")]
     public float jumpHeight;

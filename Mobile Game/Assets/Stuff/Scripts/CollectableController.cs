@@ -49,7 +49,7 @@ public class CollectableController : MonoBehaviour
             if (!collected)
             {
                 if (isGem) gm.AddGems();
-                else gm.candies += 1;
+                else gm.AddCandies();
                 collectedParticle.Play();
                 StartCoroutine(CollectAnimation());
             }
