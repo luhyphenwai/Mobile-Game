@@ -69,6 +69,7 @@ public class SkinManager : MonoBehaviour
     public void BuySkin()
     {
         skins[currentSkinIndex].owned = true;
+        gm.gems -= skins[currentSkinIndex].gemCost;
 
         OnNewSkin();
     }
