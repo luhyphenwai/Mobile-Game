@@ -23,15 +23,18 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) tapped = true;
         foreach (Touch touch in Input.touches)
         {
-            if (touch.phase == TouchPhase.Began || Input.GetKey(KeyCode.Space))
+            if (touch.phase == TouchPhase.Began)
             {
-                // tapped = touch.tapCount == 1 || Input.GetKey(KeyCode.Space);
+                tapped = touch.tapCount == 1;
                 doubleTapped = touch.tapCount == 2;
             }
-            else if (touchingTime > tapTime && !touching) { touching = true; tapped = touch.tapCount == 1; }
+            else if (touchingTime > tapTime && !touching)
+            {
+                touching = true;
+            }
             else if (touchingTime > tapTime) touching = true;
         }
-        if (Input.touchCount == 0 && !Input.GetKey(KeyCode.Space))
+        if (Input.touchCount == 0)
         {
             touchingTime = 0;
             holding = false;

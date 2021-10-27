@@ -9,6 +9,7 @@ public class PowerupManager : MonoBehaviour
 {
     [Header("References")]
     public Projectile projectilePrefab;
+    public TMP_Text gemText;
     private PlayerController pc;
     private GameManager gm;
     private InputManager input;
@@ -80,6 +81,8 @@ public class PowerupManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gemText.text = gm.gems.ToString();
+
         if (canTripleJump) TripleJumping();
         if (slowDownTime) SlowDowntime();
         if (extraLife) ExtraLife();

@@ -5,12 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class Data
 {
-    public Skin[] skins;
+    public bool[] ownedSkins;
     public int gems;
-
-    public Data(Skin[] _skins, int _gems)
+    public int highScore;
+    public Data(Skin[] _skins, int _gems, int _highScore)
     {
-        skins = _skins;
+        ownedSkins = new bool[_skins.Length];
+        for (int i = 0; i < _skins.Length; i++)
+        {
+            ownedSkins[i] = _skins[i].owned;
+        }
+
         gems = _gems;
+        highScore = _highScore;
     }
 }

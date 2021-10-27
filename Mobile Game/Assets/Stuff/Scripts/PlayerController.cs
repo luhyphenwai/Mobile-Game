@@ -62,8 +62,10 @@ public class PlayerController : MonoBehaviour
         // Check if player is on ground
         RaycastHit2D groundCast = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         isGrounded = groundCast == true;
+
         if (isGrounded && !runParticle.isEmitting) runParticle.Play();
         if (!isGrounded && runParticle.isEmitting) runParticle.Stop();
+
 
         if (!dead)
         {

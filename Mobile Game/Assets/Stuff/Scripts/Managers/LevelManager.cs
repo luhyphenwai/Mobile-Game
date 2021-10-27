@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
 {
 
     public TMP_Text distance;
+    public TMP_Text candy;
+    private GameManager gm;
     public float distanceFactor;
     public List<LevelObject> levelObjects;
     public GameObject[] levelPrefabs;
@@ -17,6 +19,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         SideDeathZone.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(-Screen.width / 3.5f, 0, 10));
     }
 
@@ -42,7 +45,9 @@ public class LevelManager : MonoBehaviour
                 Destroy(levelObject.gameObject);
             }
         }
-        distance.text = (-Mathf.Round(levelObjects[0].transform.position.x - 12) * distanceFactor).ToString();
+        distance.text = (-Mathf.Round(levelObjects[0].transform.position.x - 12) * distanceFactor).ToString() + "m";
+        gm.distanceTraveled = (int)-Mathf.Round((levelObjects[0].transform.position.x - 12) * distanceFactor);
+        candy.text = gm.candies.ToString();
     }
 
     void SpawnLevelObject(GameObject level)
@@ -50,6 +55,8 @@ public class LevelManager : MonoBehaviour
         GameObject levelObject = Instantiate(levelPrefabs[Random.Range(0, levelPrefabs.Length)], level.transform.GetChild(0).position, Quaternion.identity);
         LevelObject levelScript = levelObject.GetComponent<LevelObject>();
         levelScript.spawned = false;
+        levelScript.parent = level.transform.GetChild(0).transform;
+
         levelObjects.Add(levelScript);
     }
 }

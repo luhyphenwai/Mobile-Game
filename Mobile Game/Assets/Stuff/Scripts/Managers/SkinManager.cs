@@ -12,7 +12,9 @@ public class SkinManager : MonoBehaviour
     private GameManager gm;
 
     [Header("Skin Display")]
+    public TMP_Text highScore;
     public TMP_Text priceText;
+    public TMP_Text currentGems;
     public Animator skinDisplay;
     public Button selectButton;
     public int currentSelectedSkin;
@@ -23,6 +25,18 @@ public class SkinManager : MonoBehaviour
     private void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
+        Data data = SaveSystem.LoadData();
+        for (int i = 0; i < data.ownedSkins.Length; i++)
+        {
+            skins[i].owned = data.ownedSkins[i];
+        }
+        highScore.text = gm.highScore.ToString() + "m";
+    }
+
+    void Update()
+    {
+        currentGems.text = gm.gems.ToString();
     }
 
     public void NextSkin()
@@ -52,6 +66,8 @@ public class SkinManager : MonoBehaviour
         currentSelectedSkin = currentSkinIndex;
         gm.playerSkin = skins[currentSkinIndex].animator;
         selectButton.interactable = skins[currentSkinIndex].owned && currentSelectedSkin != currentSkinIndex;
+
+        gm.skins = skins;
     }
 
     void OnNewSkin()
@@ -64,6 +80,10 @@ public class SkinManager : MonoBehaviour
 
         // Set skin display
         skinDisplay.runtimeAnimatorController = skins[currentSkinIndex].animator;
+
+
+        gm.skins = skins;
+        SaveSystem.SaveData(gm);
     }
 
     public void BuySkin()

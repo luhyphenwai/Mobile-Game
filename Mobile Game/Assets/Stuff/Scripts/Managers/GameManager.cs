@@ -24,9 +24,11 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
 #endif
     private string addGemId = "Add_Gems";
     private string gameStartId = "Game_Start";
+    private string gameBannerID = "Banner";
     public int gemReward;
 
     [Header("State")]
+    public bool testMode = true;
     public bool loadingScene;
     public bool paused;
     public RuntimeAnimatorController playerSkin;
@@ -34,6 +36,8 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
     public bool powerupOpen;
     public int timeToPlayAd;
     private int timesPlayed;
+    public int distanceTraveled;
+    public int highScore;
 
 
     [Header("Player Items")]
@@ -41,6 +45,7 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
     public int gems;
     public int candiesCollected;
     public int gemsCollected;
+    public Skin[] skins;
 
     [Header("Conversions")]
     public int candyToGemRate;
@@ -72,6 +77,15 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
     }
 
     public void PlayGemAd() { Advertisement.Show(addGemId); }
+    IEnumerator ShowBannerWhenReady()
+    {
+        while (!Advertisement.IsReady(gameBannerID))
+        {
+            yield return null;
+        }
+        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        Advertisement.Banner.Show(gameBannerID);
+    }
     private void Awake()
     {
         if (GameObject.FindGameObjectsWithTag("GameController").Length > 1) Destroy(gameObject);
@@ -85,7 +99,12 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
     void Start()
     {
         Advertisement.AddListener(this);
-        Advertisement.Initialize(gameId, true);
+        Advertisement.Initialize(gameId, testMode);
+        StartCoroutine(ShowBannerWhenReady());
+
+        Data data = SaveSystem.LoadData();
+        gems = data.gems;
+        highScore = data.highScore;
     }
 
     // Update is called once per frame
@@ -93,7 +112,6 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
     {
         Pausing();
         // print(SceneManager.GetActiveScene().buildIndex);
-
     }
 
     public void TriggerPause()
@@ -133,26 +151,39 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
     {
         if (loadingScene) yield break; // Break if already loading scene
         loadingScene = true;
-        AsyncOperation load = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
-        load.allowSceneActivation = false;
+
+
         anim.SetTrigger("Transition");
-        yield return new WaitForSeconds(sceneTransitionTime);
-
         anim.SetTrigger("Reset");
-
-        load.allowSceneActivation = true;
-
-        // anim.SetTrigger("Transition");
         yield return new WaitForSeconds(sceneTransitionTime);
+
+        AsyncOperation load = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
+        if (!load.isDone) yield return null;
+
+        yield return new WaitForSeconds(0.5f);
+
+        // Set animations and reshow settings if needed
+        anim.SetTrigger("Transition");
+        anim.ResetTrigger("Reset");
+        PauseButton.gameObject.SetActive(SceneManager.GetActiveScene().name != "Main Menu");
+
+        // Show and hide ads
+        if (SceneManager.GetActiveScene().name == "Main Menu") Advertisement.Banner.Show();
+        else Advertisement.Banner.Hide();
+
+        yield return new WaitForSeconds(sceneTransitionTime);
+
+        // Reset stats
         gemsCollected = 0;
         candiesCollected = 0;
+
+        // Confirm that scene is loaded
         loadingScene = false;
 
+        // Deselect buttons
         GameObject myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
 
-        PauseButton.gameObject.SetActive(SceneManager.GetActiveScene().buildIndex == 1);
-        anim.SetTrigger("Reset");
 
         timesPlayed += 1;
         if (timesPlayed >= timeToPlayAd)
@@ -161,6 +192,9 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
             Advertisement.Show(gameStartId);
             timesPlayed = 0;
         }
+
+        highScore = distanceTraveled > highScore ? distanceTraveled : highScore;
+        SaveSystem.SaveData(this);
     }
 
     public void PlayerDied()
