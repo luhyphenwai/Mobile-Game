@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public bool doubleJumped;
     public float velocity;
     public Vector2 deathVelocity;
+
     [Header("Better Jumping")]
     public float defaultGravity;
     public float fallGravity;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public float jumpPadHeight;
 
     [Header("Effects")]
+    public AudioSource jumpSound;
     public ParticleSystem runParticle;
     public MMFeedbacks jumpFeedback;
 
@@ -43,7 +45,6 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         bc = gameObject.GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-
     }
     // Start is called before the first frame update
     void Start()
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour
                 anim.SetTrigger("Jump");
                 jumpFeedback.PlayFeedbacks();
                 jumped = true;
+
+                jumpSound.Play();
             }
             else if (atHouse && input.tapped)
             {
