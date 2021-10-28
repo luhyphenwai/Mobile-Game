@@ -5185,7 +5185,7 @@ MonoBehaviour:
   lowest: -0.5
   speed: 0.0025
   collected: 0
-  isGem: 0
+  isGem: 1
   animationTime: 50
   heightIncrease: 2
 --- !u!61 &7971357967367956954

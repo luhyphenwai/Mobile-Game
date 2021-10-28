@@ -4419,7 +4419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3366272070310193754, guid: 6b4c437a86918214399a02d923268d7e, type: 3}
+  m_Sprite: {fileID: -3032129168011833662, guid: 6b4c437a86918214399a02d923268d7e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4857,22 +4857,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3334309502327125124, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -181.9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334309502843376812, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334309503182212976, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334309503182212977, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0024414062
-      objectReference: {fileID: 0}
     - target: {fileID: 3334309503588918630, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4960,26 +4944,6 @@ PrefabInstance:
     - target: {fileID: 3334309503588918631, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
       propertyPath: m_Name
       value: Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334309503588918631, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7305453533841150312, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -364
-      objectReference: {fileID: 0}
-    - target: {fileID: 7806731271917786275, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7806731271917786275, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525702217938507006, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 160.00014
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 950e735b7b11685418041e2b1ef087db, type: 3}
@@ -5236,7 +5200,7 @@ Transform:
   m_GameObject: {fileID: 642481503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -15.47, y: -4.0484, z: 0}
-  m_LocalScale: {x: 4.7586374, y: 47.75678, z: 1}
+  m_LocalScale: {x: 6, y: 47.75678, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -11670,7 +11634,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1804271446}
   - component: {fileID: 1804271445}
-  - component: {fileID: 1804271444}
   - component: {fileID: 1804271443}
   - component: {fileID: 1804271442}
   - component: {fileID: 1804271441}
@@ -12175,14 +12138,6 @@ MonoBehaviour:
   offset: {x: 0, y: 1, z: -10}
   maxPositions: {x: 0, y: 100}
   minPositions: {x: 0, y: 0}
---- !u!81 &1804271444
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804271437}
-  m_Enabled: 1
 --- !u!20 &1804271445
 Camera:
   m_ObjectHideFlags: 0

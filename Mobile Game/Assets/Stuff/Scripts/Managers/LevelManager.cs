@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        SideDeathZone.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(-Screen.width / 3.5f, 0, 10));
+        SideDeathZone.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 10)) - Vector3.right * 3;
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
         }
         distance.text = (-Mathf.Round(levelObjects[0].transform.position.x - 12) * distanceFactor).ToString() + "m";
         gm.distanceTraveled = (int)-Mathf.Round((levelObjects[0].transform.position.x - 12) * distanceFactor);
-        candy.text = gm.candies.ToString();
+        candy.text = gm.candiesCollected.ToString();
     }
 
     void SpawnLevelObject(GameObject level)

@@ -12,14 +12,14 @@ public class CollectableSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // if (Random.Range(0, spikeRate + cannonRate) > spikeRate)
-        // {
-        //     Instantiate(spikes, transform);
-        // }
-        // else
-        // {
-        //     Instantiate(cannons, transform);
-        // }
+        if (Random.Range(0, candyRate + gemRate) > gemRate)
+        {
+            Instantiate(gem, transform);
+        }
+        else
+        {
+            Instantiate(candy, transform);
+        }
     }
 
 }

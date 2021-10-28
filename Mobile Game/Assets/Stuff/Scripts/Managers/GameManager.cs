@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
     public TMP_Text distanceText;
     public TMP_Text candiesCollectedText;
     public TMP_Text gemsCollectedText;
+    public AudioListener al;
     private Animator anim;
 
 #if UNITY_IOS
@@ -107,6 +108,10 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
         highScore = data.highScore;
     }
 
+    public void setAudio(bool enabled)
+    {
+        al.enabled = enabled;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -209,7 +214,8 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
             anim.SetTrigger("Player Died");
             distanceText.text = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>().distance.text;
             candiesCollectedText.text = candiesCollected.ToString();
-            gemsCollectedText.text = gemsCollected.ToString();
+            gemsCollectedText.text = (gemsCollected + candiesCollected * candyToGemRate).ToString();
+            gems += candiesCollected * candyToGemRate;
         }
 
     }
