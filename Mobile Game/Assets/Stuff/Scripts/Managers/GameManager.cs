@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
     public TMP_Text candiesCollectedText;
     public TMP_Text gemsCollectedText;
     public AudioListener al;
+    public AudioSource ac;
+    public AudioClip menuAudio;
+    public AudioClip gameAudio;
     private Animator anim;
 
 #if UNITY_IOS
@@ -173,8 +176,16 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
         PauseButton.gameObject.SetActive(SceneManager.GetActiveScene().name != "Main Menu");
 
         // Show and hide ads
-        if (SceneManager.GetActiveScene().name == "Main Menu") Advertisement.Banner.Show();
-        else Advertisement.Banner.Hide();
+        if (SceneManager.GetActiveScene().name == "Main Menu")
+        {
+            ac.clip = menuAudio;
+            Advertisement.Banner.Show();
+        }
+        else
+        {
+            ac.clip = gameAudio;
+            Advertisement.Banner.Hide();
+        }
 
         timesPlayed += 1;
         if (timesPlayed >= timeToPlayAd)
@@ -183,11 +194,14 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
             Advertisement.Show(gameStartId);
             timesPlayed = 0;
         }
+
+        ac.Play();
         yield return new WaitForSeconds(sceneTransitionTime);
 
         // Reset stats
         gemsCollected = 0;
         candiesCollected = 0;
+        candies = 0;
 
         // Confirm that scene is loaded
         loadingScene = false;

@@ -5176,7 +5176,7 @@ Transform:
   m_GameObject: {fileID: 8169415307889700922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.89, y: -1.7503496, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 8169415307435632964}
   m_Father: {fileID: 0}
@@ -5196,8 +5196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectedParticle: {fileID: 8169415306677891213}
   collectAudio: {fileID: 4653343664540252894}
-  highest: 1
-  lowest: -1
+  highest: 1.5
+  lowest: -1.5
   speed: 0.0025
   collected: 0
   isGem: 0
@@ -5216,7 +5216,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.006073773, y: 0.0015214235}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5227,7 +5227,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6422224, y: 0.64222217}
   m_EdgeRadius: 0
 --- !u!82 &4653343664540252894
 AudioSource:

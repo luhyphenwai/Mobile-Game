@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     public float distanceFactor;
     public List<LevelObject> levelObjects;
     public GameObject[] levelPrefabs;
+    public float baseVelocity;
+    public float velocityFactor;
     public float velocity;
     public float levelSpawnPosition;
     public float levelDeletePosition;
@@ -48,6 +50,8 @@ public class LevelManager : MonoBehaviour
         distance.text = (-Mathf.Round(levelObjects[0].transform.position.x - 12) * distanceFactor).ToString() + "m";
         gm.distanceTraveled = (int)-Mathf.Round((levelObjects[0].transform.position.x - 12) * distanceFactor);
         candy.text = gm.candies.ToString();
+
+        velocity = baseVelocity + (levelObjects[0].transform.position.x - 12) * velocityFactor;
     }
 
     void SpawnLevelObject(GameObject level)

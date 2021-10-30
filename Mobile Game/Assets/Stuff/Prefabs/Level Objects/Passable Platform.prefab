@@ -122,6 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac45d01f1e260e243b65a290ffbd7558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerOffset: -0.1
+  centerOffset: -0.2
   offTime: 0.8
   off: 0

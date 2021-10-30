@@ -5183,8 +5183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectedParticle: {fileID: 7971357966424713570}
   collectAudio: {fileID: 934871754158651765}
-  highest: 1
-  lowest: -1
+  highest: 1.5
+  lowest: -1.5
   speed: 0.0025
   collected: 0
   isGem: 1

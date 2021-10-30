@@ -2176,6 +2176,9 @@ MonoBehaviour:
   candiesCollectedText: {fileID: 251309066648907341}
   gemsCollectedText: {fileID: 7689284179420645252}
   al: {fileID: 151587756}
+  ac: {fileID: 8593083330467485969}
+  menuAudio: {fileID: 8300000, guid: 0dea4f553cbd9dc46a2376e89a7a7cf4, type: 3}
+  gameAudio: {fileID: 8300000, guid: 8ea5164b7c779a14b908b7711fe3cf00, type: 3}
   gemReward: 25
   testMode: 1
   loadingScene: 0

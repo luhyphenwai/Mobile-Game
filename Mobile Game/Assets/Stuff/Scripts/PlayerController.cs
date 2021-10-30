@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player State")]
     public bool jumped;
     public bool isGrounded;
+    private bool wasGrounded;
     public bool dead;
     public bool atHouse;
     public bool atShop;
@@ -68,7 +69,8 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && !runParticle.isEmitting) runParticle.Play();
         if (!isGrounded && runParticle.isEmitting) runParticle.Stop();
 
-
+        if (isGrounded && !wasGrounded) anim.SetTrigger("HitGround");
+        wasGrounded = isGrounded;
         if (!dead)
         {
             // If just touched screen && can jump
