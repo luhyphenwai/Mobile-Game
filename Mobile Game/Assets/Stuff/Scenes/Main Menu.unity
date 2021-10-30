@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc85e9426151d5045b432a717f64818d, type: 2}
   m_sharedMaterial: {fileID: -8219751551554446896, guid: bc85e9426151d5045b432a717f64818d, type: 2}
@@ -3191,16 +3191,16 @@ MonoBehaviour:
     gemCost: 0
   - animator: {fileID: 9100000, guid: 4872a19bdee2ea2468412c9f7d8eb391, type: 2}
     owned: 1
-    gemCost: 0
+    gemCost: 50
   - animator: {fileID: 9100000, guid: b9abaa26ceaf0244a95bb804f41bdba1, type: 2}
     owned: 0
     gemCost: 0
   - animator: {fileID: 9100000, guid: 7bfe2593823bdb84f8cb27c485f4202f, type: 2}
     owned: 0
-    gemCost: 0
+    gemCost: 75
   - animator: {fileID: 9100000, guid: 63b86cc18beeb194185bc2a5a2e3a814, type: 2}
     owned: 0
-    gemCost: 0
+    gemCost: 75
   highScore: {fileID: 306521738}
   priceText: {fileID: 25421032}
   currentGems: {fileID: 522363729}
@@ -3861,7 +3861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &914239414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5536,7 +5536,7 @@ MonoBehaviour:
       bounceAmplitude: 0.2
       bounceFrequency: 1
       bounceWaveSize: 0.08
-      hueShiftSpeed: 0.8
+      hueShiftSpeed: 0.3
       hueShiftWaveSize: 0.08
       fadeDelay: 1.2
       dangleAmplitude: 0.13
@@ -6528,7 +6528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -280.20703, y: -75}
+  m_AnchoredPosition: {x: -277.19995, y: -75}
   m_SizeDelta: {x: 120.74, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2125556993

@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
         }
         distance.text = (-Mathf.Round(levelObjects[0].transform.position.x - 12) * distanceFactor).ToString() + "m";
         gm.distanceTraveled = (int)-Mathf.Round((levelObjects[0].transform.position.x - 12) * distanceFactor);
-        candy.text = gm.candiesCollected.ToString();
+        candy.text = gm.candies.ToString();
     }
 
     void SpawnLevelObject(GameObject level)

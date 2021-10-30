@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Effects")]
     public AudioSource jumpSound;
+    public AudioSource deathSound;
     public ParticleSystem runParticle;
     public MMFeedbacks jumpFeedback;
 
@@ -106,12 +107,13 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("Died");
             dead = true;
+            deathSound.Play();
             GetComponent<CapsuleCollider2D>().enabled = false;
             GameObject.FindGameObjectWithTag("Background").GetComponent<Animator>().enabled = false;
             rb.velocity = new Vector2(-Mathf.Sign(transform.position.x) * deathVelocity.x, deathVelocity.y);
             gm.PlayerDied();
         }
-        else if (other.tag == "Jump")
+        else if (other.tag == "Jump" && !dead)
         {
             other.gameObject.GetComponent<Animator>().SetTrigger("Launch");
             rb.velocity = new Vector2(0, jumpPadHeight);

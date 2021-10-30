@@ -176,6 +176,13 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
         if (SceneManager.GetActiveScene().name == "Main Menu") Advertisement.Banner.Show();
         else Advertisement.Banner.Hide();
 
+        timesPlayed += 1;
+        if (timesPlayed >= timeToPlayAd)
+        {
+            paused = true;
+            Advertisement.Show(gameStartId);
+            timesPlayed = 0;
+        }
         yield return new WaitForSeconds(sceneTransitionTime);
 
         // Reset stats
@@ -190,13 +197,7 @@ public class GameManager : MonoBehaviour, IUnityAdsListener
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
 
 
-        timesPlayed += 1;
-        if (timesPlayed >= timeToPlayAd)
-        {
-            paused = true;
-            Advertisement.Show(gameStartId);
-            timesPlayed = 0;
-        }
+
 
         highScore = distanceTraveled > highScore ? distanceTraveled : highScore;
         SaveSystem.SaveData(this);

@@ -336,7 +336,7 @@ Tilemap:
   m_GameObject: {fileID: 2384852427711872561}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: 4, y: 1, z: 0}
+  - first: {x: 4, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 19
@@ -346,7 +346,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 5, y: 1, z: 0}
+  - first: {x: 5, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 18
@@ -356,7 +356,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 1, z: 0}
+  - first: {x: 6, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 18
@@ -366,7 +366,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 7, y: 1, z: 0}
+  - first: {x: 7, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 17
@@ -1877,7 +1877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2384852428359445218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 87, y: 0.90785825, z: 5.5651064}
+  m_LocalPosition: {x: 87, y: 0.90785825, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2384852427617228513}
@@ -1937,6 +1937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 0
   spawned: 1
+  parent: {fileID: 0}
 --- !u!1 &2384852428617844564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,7 +2375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935805500455897885, guid: f47a0ce8c3f995a4e81ba536011207ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.92
+      value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 3935805500455897885, guid: f47a0ce8c3f995a4e81ba536011207ce, type: 3}
       propertyPath: m_LocalPosition.z

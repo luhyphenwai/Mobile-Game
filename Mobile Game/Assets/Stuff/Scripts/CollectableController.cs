@@ -6,6 +6,7 @@ public class CollectableController : MonoBehaviour
 {
     [Header("References")]
     public ParticleSystem collectedParticle;
+    public AudioSource collectAudio;
     private GameManager gm;
     private SpriteRenderer sr;
 
@@ -29,14 +30,16 @@ public class CollectableController : MonoBehaviour
     {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         sr = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        transform.localPosition = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(transform.GetChild(0).transform.position.y - currentTarget) > 0.2f && !collected)
+        if (Mathf.Abs(transform.GetChild(0).transform.localPosition.y - currentTarget) > 0.2f && !collected)
         {
-            transform.GetChild(0).transform.position = new Vector2(transform.GetChild(0).transform.position.x, Mathf.Lerp(transform.GetChild(0).transform.position.y, currentTarget, speed));
+            transform.GetChild(0).transform.localPosition = new Vector2(0, Mathf.Lerp(transform.GetChild(0).transform.localPosition.y, currentTarget, speed));
+
         }
         else if (!collected) currentTarget = currentTarget == lowest ? highest : lowest;
     }
@@ -60,6 +63,7 @@ public class CollectableController : MonoBehaviour
 
     IEnumerator CollectAnimation()
     {
+        collectAudio.Play();
         for (int i = 0; i < animationTime; i++)
         {
             Color color = sr.color;
