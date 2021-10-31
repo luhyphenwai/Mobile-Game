@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public TMP_Text distance;
     public TMP_Text candy;
     private GameManager gm;
+    private PlayerController player;
     public float distanceFactor;
     public List<LevelObject> levelObjects;
     public GameObject[] levelPrefabs;
@@ -22,6 +23,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         SideDeathZone.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 10)) - Vector3.right * 3;
     }
 
@@ -51,7 +53,7 @@ public class LevelManager : MonoBehaviour
         gm.distanceTraveled = (int)-Mathf.Round((levelObjects[0].transform.position.x - 12) * distanceFactor);
         candy.text = gm.candies.ToString();
 
-        velocity = baseVelocity + (levelObjects[0].transform.position.x - 12) * velocityFactor;
+        if (!player.dead) velocity = baseVelocity + ((levelObjects[0].transform.position.x - 12) * velocityFactor);
     }
 
     void SpawnLevelObject(GameObject level)

@@ -912,10 +912,10 @@ RectTransform:
   m_Father: {fileID: 612745606}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 805.74, y: -542.32}
-  m_SizeDelta: {x: 541.52, y: 87.322}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -246, y: 5.6799927}
+  m_SizeDelta: {x: 541.52, y: 87.32199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &306521737
 MonoBehaviour:
@@ -1932,10 +1932,10 @@ RectTransform:
   m_Father: {fileID: 612745606}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 805.74, y: -455}
-  m_SizeDelta: {x: 541.52, y: 87.322}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -246, y: 93}
+  m_SizeDelta: {x: 541.52, y: 87.32199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529872666
 MonoBehaviour:
@@ -3265,27 +3265,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 888276518}
     m_ColliderPaths:
-    - - X: 70000100
-        Y: -29999959
-      - X: 70000041
-        Y: -29999900
-      - X: 59999959
-        Y: -29999900
-      - X: 59999900
-        Y: -29999959
-      - X: 59999900
-        Y: -30000000
-      - X: 50000100
-        Y: -30000000
-      - X: 50000100
-        Y: -29999959
-      - X: 50000041
-        Y: -29999900
-      - X: 39999959
-        Y: -29999900
-      - X: 39999900
-        Y: -29999959
-      - X: 39999900
+    - - X: 80000000
         Y: -30000000
       - X: -40000000
         Y: -30000000
@@ -3297,10 +3277,6 @@ CompositeCollider2D:
         Y: -50000000
       - X: 80000000
         Y: -50000000
-      - X: 80000000
-        Y: -30000000
-      - X: 70000100
-        Y: -30000000
   m_CompositePaths:
     m_Paths:
     - - {x: 7.9999704, y: -5}

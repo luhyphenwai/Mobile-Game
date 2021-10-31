@@ -2178,9 +2178,9 @@ MonoBehaviour:
   al: {fileID: 151587756}
   ac: {fileID: 8593083330467485969}
   menuAudio: {fileID: 8300000, guid: 0dea4f553cbd9dc46a2376e89a7a7cf4, type: 3}
-  gameAudio: {fileID: 8300000, guid: 8ea5164b7c779a14b908b7711fe3cf00, type: 3}
+  gameAudio: {fileID: 8300000, guid: 41dd9fe1f9219d2499df9a7046746607, type: 3}
   gemReward: 25
-  testMode: 1
+  testMode: 0
   loadingScene: 0
   paused: 0
   playerSkin: {fileID: 9100000, guid: a372e0514c5fb1f47827a9b7c914a9f0, type: 2}
