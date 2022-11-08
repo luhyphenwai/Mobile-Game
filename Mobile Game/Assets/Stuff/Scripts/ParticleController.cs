@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class ParticleController : MonoBehaviour
 {
-    private Light2D lightObject;
+    private UnityEngine.Rendering.Universal.Light2D lightObject;
 
     public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        lightObject = GetComponent<Light2D>();
+        lightObject = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         StartCoroutine(Timer());
     }
 

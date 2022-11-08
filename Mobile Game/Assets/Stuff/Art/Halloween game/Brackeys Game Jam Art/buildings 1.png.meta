@@ -270,7 +270,7 @@ TextureImporter:
       213: 6261144706114916355
     second: buildings 1_88
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -291,6 +291,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -329,6 +330,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -368,6 +370,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2260,6 +2274,96 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      buildings 1_29: 2805247979193528016
+      buildings 1_34: -5185133610350436358
+      buildings 1_67: -7261881425676669529
+      buildings 1_73: -7212741041967677572
+      buildings 1_65: -3979488376557234042
+      buildings 1_43: 8439535680851387503
+      buildings 1_4: 7717786822389511367
+      buildings 1_30: -9208462210975617661
+      buildings 1_31: 7443747738918113665
+      buildings 1_8: -5651039455278363562
+      buildings 1_50: -5114676213229220296
+      buildings 1_76: 8314995525844615201
+      buildings 1_10: -4425139930801854862
+      buildings 1_23: -2157768575080449407
+      buildings 1_18: 3401793895927516689
+      buildings 1_59: 6817558164435825842
+      buildings 1_88: 6261144706114916355
+      buildings 1_62: 1093770737204529893
+      buildings 1_48: -1378196055934405463
+      buildings 1_83: 8480283723437720374
+      buildings 1_61: -4134085937493686591
+      buildings 1_64: -931939249671123727
+      buildings 1_39: 512099541231561902
+      buildings 1_86: -525953331919603673
+      buildings 1_14: -2459001979693384486
+      buildings 1_37: -1778848109343746473
+      buildings 1_54: 7064846770874240952
+      buildings 1_15: -5664210367514173935
+      buildings 1_80: 6471999366887503596
+      buildings 1_16: 3936179300526374950
+      buildings 1_87: 3204827625021395164
+      buildings 1_47: 6049447346391383739
+      buildings 1_27: -3029147747592431795
+      buildings 1_69: -2341745357502049306
+      buildings 1_56: 4024259009974523017
+      buildings 1_17: -720732286591748970
+      buildings 1_79: -8670409506622336674
+      buildings 1_63: 3438487059799197480
+      buildings 1_55: -254635321548497696
+      buildings 1_85: -6789620215545852768
+      buildings 1_58: -2291228212796772616
+      buildings 1_25: -7954444313656800097
+      buildings 1_44: 540981292064987914
+      buildings 1_51: 8036440928347679047
+      buildings 1_24: 8793947970404479925
+      buildings 1_84: -5976215451002370500
+      buildings 1_28: 5113658799930536721
+      buildings 1_57: 7993961584380712710
+      buildings 1_70: -1037067447753218140
+      buildings 1_41: -4716175617171924964
+      buildings 1_72: -1044794165421837288
+      buildings 1_45: 6045709330798849848
+      buildings 1_78: 5300096506341545855
+      buildings 1_71: 1425164250435639552
+      buildings 1_0: 5215565608239086982
+      buildings 1_26: 1478369003411079557
+      buildings 1_33: -8654432014442912457
+      buildings 1_35: -4768477885161806292
+      buildings 1_19: -1213498937601879682
+      buildings 1_49: 6860766829090761934
+      buildings 1_46: 8276915139653362790
+      buildings 1_7: -6447838579474152721
+      buildings 1_66: 3563902508484450268
+      buildings 1_9: 4400496177040499195
+      buildings 1_53: -3890315262644606642
+      buildings 1_77: 8657802972694149789
+      buildings 1_5: 3041313929845020786
+      buildings 1_1: -5880667935772779366
+      buildings 1_20: 8414514863832271624
+      buildings 1_52: -722328915289322948
+      buildings 1_81: -6619231048454116345
+      buildings 1_40: 6649934385792675093
+      buildings 1_42: -5863613522821146686
+      buildings 1_22: 2490590729610890388
+      buildings 1_32: 5010224421940712284
+      buildings 1_2: 8336333926200673597
+      buildings 1_82: 1537636123239006361
+      buildings 1_74: 9004573349027743966
+      buildings 1_6: -7082244483730679684
+      buildings 1_21: 7366606392324520848
+      buildings 1_36: 7849075302895200736
+      buildings 1_68: 7242769933059031024
+      buildings 1_38: -2887219484366590892
+      buildings 1_3: 5363258509166756984
+      buildings 1_60: -4874576384218267645
+      buildings 1_13: 2915828818231380292
+      buildings 1_11: 2861294514089194724
+      buildings 1_75: 8897821178577392648
+      buildings 1_12: -8199813007217042618
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
